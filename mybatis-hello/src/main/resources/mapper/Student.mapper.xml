@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--通过namesapce找到接口-->
+<mapper namespace="com.yp.mybatis.hello.mapper.IStudentMapper">
+
+    <!--表和类的映射关系-->
+    <resultMap id="StudentMapper" type="com.yp.mybatis.domain.entity.Student">
+        <id property="sno" column="ssno"/> <!--主键-->
+        <result property="name" column="sname"/>
+        <result property="age" column="sage"/>
+        <result property="dept" column="sdept"/>
+        <result property="sex" column="ssex"/>
+    </resultMap>
+
+    <insert id="save">
+        INSERT INTO Student(sno, sname, sage, ssex, sdept) values (#{sno}, #{name}, #{age}, #{sex}, #{dept})
+    </insert>
+
+</mapper>

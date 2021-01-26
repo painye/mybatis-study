@@ -1,0 +1,3 @@
+# Project exclude paths
+/mybatis-domain/target/
+/mybatis-hello/target/
