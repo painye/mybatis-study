@@ -6,6 +6,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -33,6 +35,13 @@ public class TestMybatis {
         sqlSession=sqlSessionFactory.openSession();
         IStudentMapper mapper = sqlSession.getMapper(IStudentMapper.class);
         List<Student> list = mapper.findAll();
-        System.out.println(list);
+        Logger.getLogger(this.getClass()).debug(list);
+    }
+
+    @After
+    public void finish(){
+        sqlSession.commit();
+        sqlSession.close();
+
     }
 }
