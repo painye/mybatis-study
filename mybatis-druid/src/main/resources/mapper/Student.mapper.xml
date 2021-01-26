@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--通过namesapce找到接口-->
+<mapper namespace="com.yp.mybatis.druid.mapper.IStudentMapper">
+
+    <!--表和类的映射关系-->
+    <resultMap id="StudentMapper" type="Student">
+        <id property="sno" column="ssno"/> <!--主键-->
+        <result property="name" column="sname"/>
+        <result property="age" column="sage"/>
+        <result property="dept" column="sdept"/>
+        <result property="sex" column="ssex"/>
+    </resultMap>
+
+
+
+    <select id="findAll" resultMap="StudentMapper">
+        select * from student
+    </select>
+
+</mapper>

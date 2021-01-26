@@ -12,10 +12,16 @@
     <artifactId>mybatis-common</artifactId>
 
     <properties>
+        <!--数据连接池-->
         <project.druid.version>1.2.1</project.druid.version>
+        <!--实体类常用方法setter,getter, toString, 构造器-->
         <project.lombok.version>1.18.12</project.lombok.version>
+        <!--mysql 的jdbc实现-->
         <project.mysql-connector-java.version>8.0.21</project.mysql-connector-java.version>
+        <!--mybatis框架-->
         <project.mybatis.version>3.5.3</project.mybatis.version>
+        <!--日志-->
+        <project.log4j.version>${project.log4j.version}</project.log4j.version>
     </properties>
 
     <dependencies>
@@ -42,6 +48,12 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.5.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
 
 
