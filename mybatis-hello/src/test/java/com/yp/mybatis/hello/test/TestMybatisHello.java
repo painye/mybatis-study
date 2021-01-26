@@ -12,13 +12,17 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
+import java.util.Scanner;
 
 public class TestMybatisHello {
 
     private SqlSession sqlSession;
     private static SqlSessionFactory sqlSessionFactory;
+    private static Scanner sc;
 
     static {
+        sc=new Scanner(System.in);
         init();
     }
 
@@ -42,7 +46,30 @@ public class TestMybatisHello {
         sqlSession=sqlSessionFactory.openSession();
         //绑定接口
         IStudentMapper mapper = sqlSession.getMapper(IStudentMapper.class);//代理模式
-        mapper.save(new Student("李永乐", "201215001", "男", "SD", 23));
+        mapper.save(new Student("唐迟", "201215002", "男", "SD", 23));
+    }
+
+    @Test
+    public void testFindAll() throws Exception{
+        sqlSession = sqlSessionFactory.openSession();
+        IStudentMapper mapper = sqlSession.getMapper(IStudentMapper.class);
+        List<Student> list = mapper.findAll();
+        System.out.println(list);
+
+    }
+
+    @Test
+    public void testDelete(){
+        sqlSession = sqlSessionFactory.openSession();
+        IStudentMapper mapper = sqlSession.getMapper(IStudentMapper.class);
+        mapper.delete("123123");
+    }
+
+    @Test
+    public void testUpdate(){
+        sqlSession = sqlSessionFactory.openSession();
+        IStudentMapper mapper = sqlSession.getMapper(IStudentMapper.class);
+        mapper.update(new Student(null, "201215000", null, "MT", 70));
     }
 
     @After

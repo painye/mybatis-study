@@ -19,4 +19,16 @@
         INSERT INTO Student(sno, sname, sage, ssex, sdept) values (#{sno}, #{name}, #{age}, #{sex}, #{dept})
     </insert>
 
+    <delete id="delete">
+        delete from Student where sno = #{sno}
+    </delete>
+
+    <update id="update">
+        update Student set sdept = #{dept} where sno = #{sno}
+    </update>
+
+    <select id="findAll" resultMap="StudentMapper">
+        select * from student
+    </select>
+
 </mapper>
